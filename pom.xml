@@ -6,9 +6,9 @@
     <groupId>com.xpinjection</groupId>
     <artifactId>test-driven-spring-boot</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <!-- <packaging>jar</packaging>  -->
     <!-- uncomment to build WAR for external container  -->
-    <!--<packaging>war</packaging>-->
+         <packaging>war</packaging>
 
     <name>test-driven-spring-boot</name>
     <description>Demo project for TDD with Spring Boot course</description>
@@ -23,7 +23,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
@@ -189,6 +189,23 @@
                     <forkCount>0</forkCount>
                 </configuration>
             </plugin>
+                 <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.9.0</version>
+      </plugin>
+            <plugin>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>3.3.1</version>
+    <configuration>
+        <webResources>
+            <resource>
+                <directory>additional_resources</directory>
+            </resource>
+        </webResources>
+    </configuration>
+</plugin>     
+                 
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
